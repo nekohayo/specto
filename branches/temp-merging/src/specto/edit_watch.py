@@ -23,7 +23,7 @@
 # Boston, MA 02111-1307, USA.
 
 import sys, os
-from specto.i18n import _
+from spectlib.i18n import _
 try:
     import pygtk
     pygtk.require("2.0")
@@ -289,7 +289,7 @@ class Edit_watch:
                 self.txtHost.show()
                 lblSsl.show()
                 self.chkSsl.show()
-                if str(self.watch.ssl) == 'True':
+                if self.watch.ssl == 'True':
                     self.chkSsl.set_active(True)
                 else:
                     self.chkSsl.set_active(False)
@@ -301,7 +301,7 @@ class Edit_watch:
                 self.txtHost.show()
                 lblSsl.show()
                 self.chkSsl.show()
-                if str(self.watch.ssl) == 'True':
+                if self.watch.ssl == 'True':
                     self.chkSsl.set_active(True)
                 else:
                     self.chkSsl.set_active(False) 

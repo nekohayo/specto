@@ -24,7 +24,7 @@
 # Boston, MA 02111-1307, USA.
 
 import os, sys
-from specto.specto_gconf import GConfClient
+from spectlib.specto_gconf import GConfClient
 import gnomevfs
 
 def show_webpage(webpage):
@@ -54,8 +54,8 @@ def get_path(category=None):
             PATH = "%s/share/doc/specto/" % sys.prefix
     else:
         if not category:
-            PATH =os.path.join(os.getcwd(), "data/")
+            PATH = 'data/'
         elif category=="doc":
-            PATH = os.path.join(os.getcwd(), "data/doc/")
+            PATH = 'data/doc/'
     return PATH
 
