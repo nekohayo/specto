@@ -29,10 +29,11 @@ import gobject
 import gnome
 
 #specto imports
-from specto.iniparser import ini_namespace
+from spectlib.specto_gconf import GConfClient
+from spectlib.iniparser import ini_namespace
 from ConfigParser import ConfigParser
-from specto import i18n
-from specto.i18n import _
+from spectlib import i18n
+from spectlib.i18n import _
 
 def gettext_noop(s):
    return s
@@ -48,27 +49,21 @@ class Watch:
         self.timer_id = -1
         gnome.sound_init('localhost')
         global _
-        pop_toast = self.specto.conf_pref.get_entry("/pop_toast", "boolean")
-        if (pop_toast == True) and (self.specto.GTK): 
-            global NotificationToast
-            from specto.balloons import NotificationToast
         
     def update(self):
         """
         Check if an error sound has to be played or if a watch has to be flagged updated.
         """
         #play error sound
-        if self.error == True and self.specto.conf_pref.get_entry("/use_problem_sound", "boolean"):
-            problem_sound = self.specto.conf_pref.get_entry("/problem_sound", "string")
+        conf = GConfClient("/apps/specto/preferences")
+        if self.error == True and conf.get_entry("/use_problem_sound", "boolean"):
+            problem_sound = conf.get_entry("/problem_sound", "string")
             gnome.sound_play(problem_sound)
-            pop_toast = self.specto.conf_pref.get_entry("/pop_toast", "boolean")        
-            if (pop_toast == True) and (self.specto.GTK):
-                NotificationToast(self.specto, _("The watch, <b>%s</b>, has a problem. You may need to check the error log.") % str(self.name), self.specto.PATH + "icons/notifier/big/error.png", 0, 0, 5000, urgency="critical")
         
         #call update function if watch was updated
         if self.updated == True:
-            self.specto.toggle_updated(self.id) #call the main function to update the notifier entrie
             self.notify()
+            self.specto.toggle_updated(self.id) #call the main function to update the notifier entrie
         self.timer_id = gobject.timeout_add(self.refresh, self.update)
 
     def notify(self):
@@ -78,20 +73,21 @@ class Watch:
         global _
         if self.specto.DEBUG or not self.specto.GTK:
             self.specto.logger.log(_("Watch \"%s\" updated!") % self.name, "info", self.__class__)
+
+        #determine if libnotify and/or sound support is to be used
+        conf = GConfClient("/apps/specto/preferences")
+        pop_toast = conf.get_entry("/pop_toast", "boolean")
         
         #play a sound   
-        update_sound = self.specto.conf_pref.get_entry("/update_sound", "string")
-        if self.specto.conf_pref.get_entry("/use_update_sound", "boolean"):
+        update_sound = conf.get_entry("/update_sound", "string")
+        if conf.get_entry("/use_update_sound", "boolean"):
             gnome.sound_play(update_sound)
-
-        #determine if libnotify support is to be used
-        pop_toast = self.specto.conf_pref.get_entry("/pop_toast", "boolean")        
+        
         if (pop_toast == True) and (self.specto.GTK):
-            self.tray_x = self.specto.tray.get_x()
-            self.tray_y = self.specto.tray.get_y()
+            from spectlib.balloons import NotificationToast
 
             if self.type==0:#web
-                NotificationToast(self.specto, _("The website, <b>%s</b>, has been updated.") % str(self.name), self.specto.PATH + "icons/notifier/big/web.png", self.tray_x, self.tray_y)
+                NotificationToast(self.specto, _("The website, <b>%s</b>, has been updated.") % str(self.name), self.specto.PATH + "icons/notifier/big/web.png" )
             elif self.type==1:#email
 
                 if self.prot!=2:#other account than gmail
@@ -115,10 +111,10 @@ class Watch:
                         notification_toast = None#nothing to notify the user about.
 
                 if notification_toast:
-                    NotificationToast(self.specto, notification_toast, self.specto.PATH + "icons/notifier/big/mail.png", self.tray_x, self.tray_y)
+                    NotificationToast(self.specto, notification_toast, self.specto.PATH + "icons/notifier/big/mail.png" )
 
             elif self.type==2:#folder
-                NotificationToast(self.specto, _("The file/folder, <b>%s</b>, has been updated.") % self.name, self.specto.PATH + "icons/notifier/big/folder.png", self.tray_x, self.tray_y)
+                NotificationToast(self.specto, _("The file/folder, <b>%s</b>, has been updated.") % self.name, self.specto.PATH + "icons/notifier/big/folder.png" )
             else:
                 self.specto.logger.log(_("Not implemented yet"), "warning", self.__class__)#TODO: implement other notifications
             #end of the libnotify madness

@@ -23,10 +23,10 @@
 # Boston, MA 02111-1307, USA.
 
 import sys
-import specto.edit_watch
-import specto.util
+import spectlib.edit_watch
+import spectlib.util
 from random import randrange
-from specto.i18n import _
+from spectlib.i18n import _
 try:
     import pygtk
     pygtk.require("2.0")
@@ -374,16 +374,16 @@ class Notifier:
         if selected.type == 0:
             uri_real = self.specto.watch_io.read_option(self.specto.watch_db[id].name, "uri_real")#this is just in case the uri_real parameter is present, i.e.: a web feed
             if uri_real:
-                specto.util.show_webpage(uri_real)
+                spectlib.util.show_webpage(uri_real)
             else:
-                specto.util.show_webpage(selected.url_)
+                spectlib.util.show_webpage(selected.url_)
         elif selected.type == 1:
             if selected.prot == 2: #gmail opens in a browser
-                specto.util.show_webpage("https://gmail.google.com")
+                spectlib.util.show_webpage("https://gmail.google.com")
             else:
-                specto.util.open_gconf_application("/desktop/gnome/url-handlers/mailto")
+                spectlib.util.open_gconf_application("/desktop/gnome/url-handlers/mailto")
         elif selected.type == 2:
-            specto.util.open_file_watch(selected.file)
+            spectlib.util.open_file_watch(selected.file)
                 
     def change_entry_name(self, *args):
         """ Edit the name from the watch in the notifier window. """
@@ -447,12 +447,10 @@ class Notifier:
         Return True to stop destroying the main window.
         """
         self.save_size_and_position()
-        if self.specto.conf_pref.get_entry("/always_show_icon", "boolean") == True:
-            self.notifier.hide()
-            self.specto.conf_ui.set_entry("/notifier_state", 0, "boolean")#save the window state for the next time specto starts
-            return True
-        else:
-            self.specto.quit()
+        self.notifier.hide()
+        self.specto.conf_ui.set_entry("/notifier_state", 0, "boolean")#save the window state for the next time specto starts
+
+        return True
 
     def restore_size_and_position(self):
         """

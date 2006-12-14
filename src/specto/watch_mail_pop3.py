@@ -23,12 +23,12 @@
 # Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 # Boston, MA 02111-1307, USA.
 
-from specto.watch import Watch
+from spectlib.watch import Watch
 
 import poplib
 import os
 from socket import error
-from specto.i18n import _
+from spectlib.i18n import _
 
 class Mail_watch(Watch):
     """ 
@@ -68,7 +68,7 @@ class Mail_watch(Watch):
         self.specto.logger.log(_("Updating watch: \"%s\"") % self.name, "info", self.__class__)
         
         try:
-            if str(self.ssl) == 'True':
+            if self.ssl == True:
                 s = poplib.POP3_SSL(self.host)
             else:
                 s = poplib.POP3(self.host)
