@@ -80,20 +80,19 @@ class Specto:
         self.DEBUG = DEBUG
         self.logger = Logger(self)
         self.check_instance() #see if specto is already running
-        self.GTK = GTK
-        if GTK:
-            self.tray = Tray(self)
         self.util = util
-        self.watch_db = {}
-        self.watch_io = Watch_io()
-        watch_value_db = self.watch_io.read_options() 
-        self.PATH = util.get_path()
-        self.preferences_initialized = False
-        self.notifier_initialized = False
+        self.PATH = self.util.get_path()
         self.GConfClient = GConfClient
         self.conf_ui = self.GConfClient("/apps/specto/ui")
         self.conf_pref = self.GConfClient("/apps/specto/preferences")
-        
+        self.GTK = GTK
+        if GTK:
+            self.tray = Tray(self)
+        self.watch_db = {}
+        self.watch_io = Watch_io()
+        watch_value_db = self.watch_io.read_options() 
+        self.preferences_initialized = False
+        self.notifier_initialized = False        
         #listen for gconf keys
         self.conf_pref.notify_entry("/debug_mode", self.key_changed, "debug")
 
@@ -112,7 +111,11 @@ class Specto:
                 break
 
         if GTK:
-            if self.conf_ui.get_entry("/notifier_state", "boolean")==True:
+            if self.conf_pref.get_entry("/always_show_icon", "boolean") == False:
+                #if the user has not requested the tray icon to be shown at all times, it's impossible that the notifier is hidden on startup, so we must show it.
+                self.notifier_keep_hidden = False
+                self.toggle_notifier()
+            elif self.conf_ui.get_entry("/notifier_state", "boolean")==True:
                 self.notifier_keep_hidden = False
                 self.toggle_notifier()
             elif self.conf_ui.get_entry("/notifier_state", "boolean")==False:
@@ -167,6 +170,8 @@ class Specto:
         """
         Recreate a tray icon if the notification area unexpectedly quits.
         """
+        try:self.tray.destroy()
+        except:pass
         self.tray = ""
         self.tray = Tray(self)
         self.count_updated_watches()
@@ -450,6 +455,7 @@ class Specto:
         elif not self.notifier_initialized and not self.notifier_keep_hidden:
             self.notifier = Notifier(self)
             self.notifier.restore_size_and_position()
+            self.notifier.notifier.show()
 
         elif self.notifier_initialized:
             if self.notifier.get_state()==True and self.notifier_keep_hidden:
@@ -540,5 +546,21 @@ class Specto:
             gtk.main_quit()
         except:
             self.notifier.stop_refresh = True
-            error_string = _('Specto is currently checking a watch for updates. When it has finished checking, try quitting Specto again.')
-            os.system("zenity --info --title='Cannot quit' --text='%s' &" % error_string) #FIXME: allow emergency quitting anyway? Create a "real" gtk dialog that offers the choice between "wait" (do nothing), "retry" (self.quit) and "emergency exit" (killall specto).
+            #create a close dialog
+            dialog = gtk.Dialog("Error quitting specto", None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT, None)
+            dialog.add_button(gtk.STOCK_CANCEL, -1)
+            dialog.add_button("Murder specto", 3)            
+            label = gtk.Label(_('Specto is currently busy and cannot quit yet.\n\nThis may be because it is checking for watch updates.\nHowever, you can try forcing it to quit by clicking the murder button.'))
+            dialog.vbox.pack_start(label, True, True, 20)
+            label.show()
+            icon = gtk.gdk.pixbuf_new_from_file(self.PATH + 'icons/specto_window_icon.png' )
+            dialog.set_icon(icon)
+            answer = dialog.run()
+            if answer == 3:
+                try:
+                    sys.exit(0)
+                except:
+                    #kill the specto process with killall
+                    os.system('killall specto')
+            else:
+                dialog.destroy()
