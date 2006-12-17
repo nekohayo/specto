@@ -42,6 +42,8 @@ from spectlib.i18n import _
 #for the initial ping test
 from urllib2 import urlopen
 from time import sleep
+import time
+import thread
 
 #create a gconf object
 debug_gconf_client = GConfClient("/apps/specto/preferences")
@@ -78,6 +80,8 @@ class Specto:
 
     def __init__(self):
         self.DEBUG = DEBUG
+        import gettext #this is for the glade files
+        self.glade_gettext = gettext.textdomain("specto")
         self.logger = Logger(self)
         self.check_instance() #see if specto is already running
         self.util = util
@@ -193,10 +197,11 @@ class Specto:
         #start the active watches
         if self.notifier_initialized:            
             self.notifier.refresh()
-                    
+            
     def create_watch(self, values):
         """ Add a watch to the watches repository. """
         id = len(self.watch_db)
+        
         if values['type'] == 0: #add a website
             from spectlib.watch_web_static import Web_watch
             self.watch_db[id] = Web_watch(self, values['name'], values['refresh'], values['uri'], id, values['error_margin']) #TODO: Authentication
@@ -549,7 +554,7 @@ class Specto:
             #create a close dialog
             dialog = gtk.Dialog("Error quitting specto", None, gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT, None)
             dialog.add_button(gtk.STOCK_CANCEL, -1)
-            dialog.add_button("Murder specto", 3)            
+            dialog.add_button(_("Murder!"), 3)            
             label = gtk.Label(_('Specto is currently busy and cannot quit yet.\n\nThis may be because it is checking for watch updates.\nHowever, you can try forcing it to quit by clicking the murder button.'))
             dialog.vbox.pack_start(label, True, True, 20)
             label.show()
