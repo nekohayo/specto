@@ -1,0 +1,168 @@
+2007-02-07  Christopher James Halse Rogers  <chalserogers@gmail.com>
+
+	* Make the google-pinger smarter.  It will now ping a maximum of
+	once every 10 minutes, and assume that the network is still in the
+	previous state between pings.
+
+2007-02-06  Christopher James Halse Rogers  <chalserogers@gmail.com>
+
+	* Make the web and email watches network-aware.  These watches
+	will now only attempt to update when a network connection is
+	detected.  If a network connection is not detected, watch updates
+	will get triggered when a connection is available again.
+	* Remove the "ping google" at Specto startup code.  Obsoleted by
+	the new connection-manager :)
+
+2007-02-04 Jean-Francois Fortin
+    * Add network connection icons for a possible network watch (tells you how many times your connection dropped)
+    * Kill the net/ folder, I have not been given reasons for its existence and it's breaking system-wide install
+    * Remove some prints from watch.py (they were only useful for troubleshooting issue #40)
+
+2007-02-02 Jean-Francois Fortin
+    * Remove a useless line in notifier.glade; the toolbar now follows gnome's global settings. Please folks, use glade3 if possible, not glade2, it's old and messy
+
+2007-01-27 Jean-Francois Fortin
+    * Fix isue #5 sounds keep playing - this was due to the fact that the watches notified on each refresh if they were marked updated, even if they did not change! Therefore, we now use an additional variable: self.actually_updated
+    * Fix issue #7 specify the libnotify balloon delay - you can now set a custom duration for balloons in the preferences
+    * Code cleanup. Lots of little bits fixed.
+    * Why did we have a function called specto.update_watch? That's pretty confusing. Renamed to specto.mark_watch_busy
+    * Found a horrible, fat bug. Filed as issue #40, please help!
+    * Added a lot of print functions in watch.py; these are necessary until we fix issue #40
+    * Committed the italian translations. I forgot to add them!
+    * Updated the french translation and the translations template file
+    * Update the generate_template.py string generation script
+    * Fix issue #25 /usr/share/pixmaps is deprecated. We now install an SVG icon directly into the HighContrast theme. You may need to sudo gtk-update-icon-cache -f /usr/share/icons/hicolor. If you are a package maintainer, please include that post-install task too.
+    * Make all the watches display by default (reverse the display_all gconf key)
+
+2007-01-27 Wout Clymans
+    * Added a new watch type: process watch
+
+2007-01-26 Jean-Francois Fortin
+    * Fix issue #28: implement the feature that allows not displaying the notifier in the window list applet in the panel (optional)
+    * Make the blue icon lighter again
+
+2007-01-23 Wout Clymans, Jean-Francois Fortin
+    * Fix issue #4: content is left aligned
+    * Fix issue #30: sort order is correctly saved
+    * Fix issue #34: "display all watches" is checked at startup
+    * extend the pango ellipsize behavior to a few other labels in the notifier window
+
+2007-01-20 Jean-Francois Fortin
+    * use pango to ellipsize (truncate) the webpage URIs shown in the notifier window. Better results and less hacks.
+
+2007-01-05 Jean-Francois Fortin
+    * late happy new year, folks :)
+    * added back the launch.sh script. This is used only for those who do not want to install Specto and who face gnome's stupid launchers. Starting 
+"specto" directly still works though.
+
+2006-12-26 Wout Clymans
+    * Export watches implemented
+
+2006-12-23 Jean-Francois Fortin
+    * Fix the y position of the balloons appearing from the tray
+
+2006-12-17 Chris Halse Rogers
+    * Merge the reorganization branch into trunk, get rid of launch.sh
+
+2006-12-15 Jean-Francois Fortin
+    * Partially fix issue #30 that made the sorting order change on startup, this also fixes a gmail watch bug at the same time
+    * Remove some useless translated strings, update de, fr, sv (thanks Daniel Nylander), it (thanks Giulio lotti) translations
+
+2006-12-15 Jean-Francois Fortin
+    * Fixed issue #9, Specto can now be fully translated. Yes, that means glade files too! Go ahead and make Specto beautiful in your native language!
+    * Updated translations template
+    * Updated translations: fr, de (thanks Tobias)
+    * Fixed translations that use plurals in our code
+
+2006-12-15 Wout Clymans
+    * Fixed issue #10 specto uses threads to update watches
+
+2006-12-12 Jean-Francois Fortin
+    * Finally killed libegg and use PyGTK's gtk.StatusIcon instead (fixes issue #8, requires pygtk 2.10)
+    * The tray icon is not persistent as a default: you have to enable it in the preferences now. This is for HIG purposes.
+    * Killed the traypopup module, it really was useless, I merged it in trayicon
+    * Libnotify balloons are finally attached to the tray icon!
+    * Make the utils module return absolute paths
+    * Fix issue #16: icons do not show in balloons
+    * Display a minimal libnotify balloon when something goes wrong with a watch
+    * Code cleanup
+
+2006-12-12 Wout Clymans
+    * Fix issue #3 a dialog is shown with the question to kill specto
+    * Fix issue #22 (hopefully) for mail SSL support
+
+2006-12-09 Jean-François Fortin
+    * Fix issue #23 (hopefully) where specto thought it was already running if another app stole its process ID
+    * Fix issue #26 (partly) by adding the executable bit to the file "specto"
+    * Add the SV translation taken from Rosetta (Daniel Nylander)
+
+2006-11-18 Jean-François Fortin
+    * Feature added: checks for network connectivity before starting by trying to open google.com. If it fails, it sleeps for 10 seconds.
+    * Fix a few path bugs
+    * Fix a traceback that happened when you edited a gmail watch because main.py tried to grab the Host
+
+2006-11-15 Jean-François Fortin
+    * Fix issue #2 where the watches.list would mess up if you cleared all watches after removing one, or if you removed a watch during the first update process.
+
+2006-11-12 Thomas McColgan
+    * Specto now runs locally. This breaks setup.py and the ability to install Specto system-wide.
+
+2006-10-26 Wout Clymans
+    * Added SSL support for pop3/imap email watches
+
+2006-10-24 Giulio lotti, Jean-François Fortin & Thomas McColgan
+    * gettext support, finally Specto can be translated into different languages !
+    * new and better (translatable) quicktips
+    * small bug fixes
+    * added French translation
+    * added Romanian translation, thanks to Adrian Petrescu
+    * generic stuff for the 0.1 release (cleanup, roadmap, todos, etc)
+    
+2006-10-21 Jean-François Fortin
+    * (bug #65931) removing a watch did not remove "updated = False", which caused crashes and corruption
+
+2006-10-19 Wout Clymans
+    * code cleanup and documentation for the functions added
+
+2006-10-15 Giulio Lotti
+    * proper libnotify support. The dependency on libnotify-bin is now deprecated for a dependency on python-notify
+
+2006-09-27 Wout Clymans
+    * (bug #60261) mime is used when you open a file watch
+    * play sound when an error or an update occur
+
+2006-09-26 Jean-François Fortin
+    * (bug #49811) when the website you are watching is a syndication feed, specto will point to the correct 'real' URL when you open the page.
+    * (bug #55324) display the toolbar by default
+
+2006-09-13 Jean-François Fortin
+    * (bug #60261) no action associated with file watch - it now opens the parent directory containing the file
+
+2006-09-13 Jean-François Fortin
+    * gmail watches now clear themselves when your unread message count reaches zero
+    * this introduces bug #60279
+
+2006-09-13 Wout Clymans
+    * added file watch support (alpha)
+
+2006-09-08 Jean-François Fortin
+    * fixed how the gmail unread messages were counted
+    * killed the IM watch. It never existed anyway.
+
+2006-09-07 Jean-François Fortin
+    * (bug #54275) better gmail unread message counting
+    * display the number of unread gmail messages
+    * (bug #54463) truncate the URLs if they are too long to be displayed in notifier
+    * (bug #49616) by displaying a warning dialog if you try to quit specto before it has finished checking watches for the first time
+    * various small enhancements
+
+2006-08-30  Wout Clymans
+	* error icon is shown when there was an error in the update
+
+2006-08-19  Wout Clymans	
+	* added icon to the about dialog
+	* when you add a web watch,"http://" is added if necessary
+	* watches are always updated top-down
+	* sorting choice is stored in a gconf key
+	* checkbox is checked before the update from the watch when you activate it
+	* log file can be opened and cleared from the preferences dialog
