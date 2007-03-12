@@ -1,3 +1,6 @@
+2007-03-11  Wout Clymans <woutclymans@pi.be>
+	*bugfix: added the import_export glade file
+
 2007-02-07  Christopher James Halse Rogers  <chalserogers@gmail.com>
 
 	* Make the google-pinger smarter.  It will now ping a maximum of
