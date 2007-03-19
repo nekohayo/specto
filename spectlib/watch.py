@@ -184,27 +184,53 @@ class Watch_io:
                 watch_options.update(watch_options_)
             values = {}
             values['name'] = name_
-            values['type'] = int(watch_options['type'])
+            try :
+               values['type'] = int(watch_options['type'])
+            except KeyError :
+               ### XXX: Hack!  If any of this info is incomplete, just move 
+               ### on to the next config item rather than crashing!
+               continue
             del watch_options['type'] #delete the standard options from the dictionary with extra arguments because we allready saved them in the line above
-            values['refresh'] = int(watch_options['refresh'])
+            try :
+               values['refresh'] = int(watch_options['refresh'])
+            except KeyError :
+               ### XXX: Hack, as above
+               continue
             del watch_options['refresh']
 
             if int(values['type']) == 0:
-                values['uri'] = watch_options['uri']
-                values['error_margin'] = watch_options['error_margin']
+               try : 
+                  values['uri'] = watch_options['uri']
+                  values['error_margin'] = watch_options['error_margin']
+               except KeyError :
+                  ### XXX: Hack as above
+                  continue
 
             elif int(values['type']) == 1:
-                values['prot'] = watch_options['prot']
-                if int(values['prot']) != 2:
-                    values['host'] = watch_options['host']
-                    values['ssl'] = watch_options['ssl']
-                values['username'] = watch_options['username']
-                values['password'] = watch_options['password']
+               try :
+                  values['prot'] = watch_options['prot']
+                  if int(values['prot']) != 2:
+                     values['host'] = watch_options['host']
+                     values['ssl'] = watch_options['ssl']
+                  values['username'] = watch_options['username']
+                  values['password'] = watch_options['password']
+               except KeyError :
+                  ### XXX: Hack, as above
+                  continue
             elif int(values['type']) == 2:
-                values['file'] = watch_options['file']
-                values['mode'] = watch_options['mode']
+               try :
+                  values['file'] = watch_options['file']
+                  values['mode'] = watch_options['mode']
+               except KeyError :
+                  ### XXX: Hack, as above
+                  continue
+                  
             elif int(values['type']) == 3:
-                values['process'] = watch_options['process']
+               try :
+                  values['process'] = watch_options['process']
+               except KeyError :
+                  ###XXX: Hack, as above
+                  continue
                 
             try:
                 if watch_options['updated'] == "True":
