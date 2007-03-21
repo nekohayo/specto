@@ -1,4 +1,5 @@
 #summary helping Specto speak your language
+#labels Featured,Phase-Support
 Ideally, if there is already a translation team or person assigned to the language you want to translate Specto into, you should try contacting them before starting to translate.
 
 Here is a short guide to translating under Linux, it is here as a "quick reference" or reminder for people like Kiddo who always forget.
