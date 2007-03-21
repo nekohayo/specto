@@ -17,13 +17,13 @@ You must select a watch type. Depending on the type, the other parameters will v
 = Refresh Interval =
 The amount of time Specto must wait before checking for updates on the watch. In addition to the refresh "number", you must specify which time unit the watch must use (seconds, minutes, hours, days).
 
-It is strongly recommended to '''set the refresh interval to a reasonably high value'''. There are a few good reasons to do this:
+It is strongly recommended to *set the refresh interval to a reasonably high value*. There are a few good reasons to do this:
   * Save processing power and network bandwidth
   * Prevent from being [http://en.wikipedia.org/wiki/Blacklist blacklisted] by content providers, which could consider your requests as a [http://en.wikipedia.org/wiki/Denial_of_Service DoS attack].
   * Keeps you concentrated on working instead of staring at Specto all the time :)
 
 = Error Margin =
-Certain watch types (such as websites) have a special mechanism we call the Mighty '''Error Margin'''. What it does is that it sets the minimum filesize difference (in percentage) before a watch will be considered as "updated". This feature is important for websites for example, because a lot of them use advertising content, fooling Specto into thinking they were updated. Usually, a 2% error margin seems correct, but you can fine-tune it later using the watch editing dialog.
+Certain watch types (such as websites) have a special mechanism we call the Mighty *Error Margin*. What it does is that it sets the minimum filesize difference (in percentage) before a watch will be considered as "updated". This feature is important for websites for example, because a lot of them use advertising content, fooling Specto into thinking they were updated. Usually, a 2% error margin seems correct, but you can fine-tune it later using the watch editing dialog.
 
 = Finishing the process =
 When you click the "add" button, the watch will be added to Specto's watch list, shown in the notifier window, and will start checking for updates. To remove it from the database, see RemovingWatches.
