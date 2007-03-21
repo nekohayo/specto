@@ -1,5 +1,5 @@
 #summary how to get and install Specto
-#labels Documentation
+#labels Documentation,Featured
 Installing Specto is usually an easy process if you have a Ph.D in rocket science, but this can vary wildly depending on a range of factors such as your Linux distribution, the availability of Specto for your distribution, and the number of cats in 4chan.
 
 = Linux Distributions that currently provide Specto: =
@@ -55,4 +55,3 @@ sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
 }}}
 
 You can then run specto by typing "specto" and pressing enter in a terminal, or look in your GNOME applications menu, there should be an entry for Specto in the "accessories" submenu.
-
