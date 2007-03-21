@@ -1,0 +1,58 @@
+#summary how to get and install Specto
+#labels Documentation
+Installing Specto is usually an easy process if you have a Ph.D in rocket science, but this can vary wildly depending on a range of factors such as your Linux distribution, the availability of Specto for your distribution, and the number of cats in 4chan.
+
+= Linux Distributions that currently provide Specto: =
+If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list.
+  * [http://frugalware.org Frugalware Linux]
+  * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
+
+= Official packages and tarballs =
+These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
+
+= Third party packages =
+  * Repositories by RAOF for Ubuntu:
+  ** RAOF's server: [http://raof.dyndns.org/falcon/dists/edgy/misc/ raof.dyndns.org/falcon]
+  ** German Mirror: [http://ubuntu.moshen.de/dists/edgy/misc/ ubuntu.moshen.de] (recommended)
+  * [http://aur.archlinux.org/packages.php?do_Details=1&ID=8367 Package by William Rea] for Arch Linux
+
+= Getting Specto from SVN =
+Follow the instructions in our [http://code.google.com/p/specto/source source section].
+
+You may want to *keep your SVN version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto SVN trunk: 
+{{{
+svn up
+}}}
+
+== Running or installing from a tarball or the SVN trunk ==
+After extracting the contents of a tarball, you will notice Specto has a bunch of files and folders. Before doing anything remotely productive, you need to make sure you fill the dependencies to make Specto work.
+
+=== Dependencies ===
+This is the most current list of required software packages needed to compile Specto. The items in bold are the ones you are most likely to need to install, the rest is usually already present in most distributions.
+  * *subversion* (if you want specto from SVN)
+  * python
+  * *python-dev*
+  * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
+  * python-glade2
+  * python-gnome2
+  * python-gnome2-extras
+  * python-central
+  * *python-notify* and python-dbus (to allow libnotify "balloons")
+  * python-gconf
+----
+
+What to do now that you took care of those dependencies? Don't panic. There are two options: running specto locally or installing it system-wide.
+
+To run specto without installing it: just run the script 
+{{{
+launch.sh
+}}}
+
+To install specto system-wide (do this if you have multiple users doing it, if you are a package maintainer or if you want the translations to work). You need to run the setup script as a super-user. Do this in the folder where you extracted Specto: 
+{{{
+sudo python setup.py install
+sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
+}}}
+
+You can then run specto by typing "specto" and pressing enter in a terminal, or look in your GNOME applications menu, there should be an entry for Specto in the "accessories" submenu.
+
