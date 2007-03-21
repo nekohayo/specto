@@ -1,10 +1,5 @@
 #summary If you are looking to stop a watch from being updated, but not remove it from the watch list, this is for you.
 #labels Documentation
-
-= Introduction =
-If you are looking to stop a watch from being updated, but not remove it from the watch list, this is for you.
-
-= Details =
   # Open the notifier window
   # Look at the leftmost column. Besides each watch, there is a checkbox that allows you to activate and deactivate the watch in one click.
   # Just uncheck it to deactivate/activate the watch.
