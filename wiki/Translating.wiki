@@ -1,0 +1,25 @@
+#summary helping Specto speak your language
+Ideally, if there is already a translation team or person assigned to the language you want to translate Specto into, you should try contacting them before starting to translate.
+
+Here is a short guide to translating under Linux, it is here as a "quick reference" or reminder for people like Kiddo who always forget.
+
+You will need:
+  * specto
+  * a good efficiency in your language - it is not encouraged to translate if it is not in your mother tongue
+  * a .po file editor. We recommend [http://www.poedit.org poedit], but you are free to use whatever suits you. poedit will most likely be available from your distribution packages. For example, ubuntu users can easily install "poedit" with synaptic.
+
+This guide will assume you are using the SVN version of Specto.
+
+  # recreate the template file by executing the script called *generate_template.py* in the *po* folder
+  # if your language does not exist yet, create a subfolder in po/ (such as po/fr for French)
+  # open specto.pot with your translation tool (ex.: poedit)
+  # you will now be able to create a .po file that you can put in your directory (for example, po/fr/specto.po)
+  # translate and save your work
+  # poedit automatically creates a .mo file besides the .po file
+  # edit setup.py and find the line where it says i18n_languages = _something_. Add your locale code (fr for French, de for German, it for Italian, etc) to the list
+  # run installation script again: *sudo python setup.py install*
+
+If your language already exists in Specto and you want to translate new strings that were added:
+  # run *generate_template.py* in the *po* folder
+  # open your .po file (such as po/fr/specto.po), and tell your translation software to update from the .pot template file (poedit has this in the Catalog menu).
+  # translate, save, reinstall.

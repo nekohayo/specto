@@ -1,0 +1,13 @@
+#summary defining what each special terms (words) mean in Specto's user interface, in English.
+If you see a missing word and would like it to be included, please add it at the end, in the "unknown terms" section.
+
+  * Watch: This is the "object" that checks a target for updates at a regular time interval. In the case of a "mail watch", for example, a watch could check for new emails every hour.
+  * Refresh Interval: Time span between each watch checks. For example, a refresh interval of 3600 (60 minutes) means that the watch will check the content for updates, wait 60 minutes, and check again. It is recommended that you set a reasonable amount of time between watch checks, in order to save bandwidth and prevent content providers from saying nasty words.
+  * Error Margin: The maximum filesize difference (in percent) that a webpage can have until it is considered as "updated"
+  * URL: A Uniform Resource Locator (URL) is a string of characters conforming to a standardized format, which refers to a resource on the Internet (such as a document or an image) by its location. For example, the URL of this page is [Terminology]. An HTTP URL, commonly called a web address, is usually shown in the address bar of a web browser. *In the notifier window's watch information pane, we refer to it as _location_.*
+  * Notifier: Window displaying the watches, allowing you to view and manage them. It can be started by clicking on the tray icon.
+  * Debug Mode: A special operation mode of Specto that allows getting more information in order to help detecting bugs.
+  * Bug: A software bug is an error, flaw, mistake, failure, or fault in a computer program that prevents it from working as intended, or produces an incorrect result. As a user, if you experience weird behavior from Specto, it may be that you found a bug. You should [http://code.google.com/p/specto/issues/list report it] so that we know of its existence, if it has not already been reported by someone else.
+
+= Unknown terms =
+None
