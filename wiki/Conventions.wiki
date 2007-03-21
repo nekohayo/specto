@@ -1,3 +1,4 @@
+#labels Phase-Requirements,Phase-Implementation
 = Indentation =
 You must use *four (4) spaces instead of tabs* to indent the code. Proper and consistent indentation in Python is crucial.
 = Comments and documentation =
@@ -8,6 +9,7 @@ Do not sign your name or nickname at the top of the code or inside the code. Thi
   * they _scare people off_ because they look like a territory mark; when someone is about to modify that code (be that a new contributor or a veteran), that contributor will certainly feel _"am I stepping on somebody's toes? maybe I'm not supposed to touch this? what if I awaken the Mummy?"_
   * that signature gives no idea of the _size of the contribution_ that person did, or the amount of code you need to (re)write to get your name on a file
 Instead, your name should go in the ChangeLog file when you commit some significant changes. If you don't have commit access and are providing a patch, we will be committing your patch and mentionning your name.
+If you think you are the best person to go to for questions on a module, add your name to the MAINTAINERS file.
 
 = Do not make modules talk to others directly =
 In specto, everything is managed by main.py. As it is the central module, you must use it if you need to communicate to other modules. Main.py is the one who must do the job, NOT your specific module. For example, if we have dish.py who feels it needs to be washed, it must not ask dishwasher.py to be washed. It must ask main.py, which in turn will ask dishwasher.py to do the washing. 
