@@ -8,5 +8,5 @@ You could use these links to make specto watch those pages, to be advised when a
   * downloads: http://code.google.com/p/specto/downloads/list
   * bugs and requests:http://code.google.com/p/specto/issues/list
   * changes on the website: http://specto.sourceforge.net
-  * random test page: http://specto.ecchi.ca/test
+  * random test page: http://randize.com
 ...and so on.
