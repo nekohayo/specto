@@ -1,4 +1,5 @@
 #summary want to help us?
+#labels Featured
 = Who you are dealing with =
 Specto is a project based on volunteering (until we get rich by world domination because of the widespread use of Specto). That means that when contributing, you must be willing to make that will be readable by others, by following these few guidelines to keep things smooth.
 == Communicating ==
