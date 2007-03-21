@@ -1,4 +1,4 @@
-#summary how to create a new "watch"
+#summary how to create a new watch
 #labels Documentation
 
 In order to add a watch, you need to start Specto and open the notifier window. If there is no window called "notifications" open already, you can open it by clicking the Specto tray icon.
@@ -29,4 +29,4 @@ Certain watch types (such as websites) have a special mechanism we call the Migh
 When you click the "add" button, the watch will be added to Specto's watch list, shown in the notifier window, and will start checking for updates. To remove it from the database, see RemovingWatches.
 
 == How do I know it works? ==
-If you want to make sure that Specto works for watching websites, you can use this test page that changes randomly every few seconds: http://specto.ecchi.ca/test
+If you want to make sure that Specto works for watching websites, you can use this test page that changes randomly: randize.com
