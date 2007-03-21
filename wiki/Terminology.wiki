@@ -1,4 +1,5 @@
 #summary defining what each special terms (words) mean in Specto's user interface, in English.
+#labels Documentation
 If you see a missing word and would like it to be included, please add it at the end, in the "unknown terms" section.
 
   * Watch: This is the "object" that checks a target for updates at a regular time interval. In the case of a "mail watch", for example, a watch could check for new emails every hour.
