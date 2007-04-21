@@ -26,7 +26,7 @@ from spectlib.watch import Watch
 
 import StringIO, gzip
 import os, md5, urllib2
-from httplib import HTTPMessage
+from httplib import HTTPMessage, BadStatusLine
 from math import fabs
 from re import compile #this is the regex compile module to parse some stuff such as <link> tags in feeds
 from spectlib.i18n import _
@@ -114,7 +114,7 @@ class Web_watch(Watch):
                 request.add_header("If-None-Match", self.infoB_['ETag'])
         try:
             response = urllib2.urlopen(request)
-        except urllib2.URLError, e:
+        except (urllib2.URLError, BadStatusLine), e:
             self.error = True
             self.specto.logger.log(_("Watch: \"%s\" has error: ") % self.name + str(e), "error", self.__class__)
         else:
