@@ -50,6 +50,7 @@ class File_watch(Watch):
         self.id = id
         self.error = False
         self.first_time = False
+        self.actually_updated = False
 
     def dict_values(self):
         return { 'name': self.name, 'refresh': self.refresh, 'file': self.file, 'mode':self.mode, 'type':2 }
@@ -72,6 +73,7 @@ class File_watch(Watch):
     def update(self, lock):
         """ See if a file was modified or created. """
         self.error = False
+        self.updated = False
         self.specto.mark_watch_busy(True, self.id)
         self.specto.logger.log(_("Updating watch: \"%s\"") % self.name, "info", self.__class__)
         
@@ -97,10 +99,10 @@ class File_watch(Watch):
         except:
             self.error = True
             self.specto.logger.log(_("Watch: \"%s\" has an error") % self.name, "error", self.__class__)
-        
+
+        self.actually_updated = self.updated
         self.specto.mark_watch_busy(False, self.id)
-        lock.release()
-        Watch.update(self)
+        Watch.update(self, lock)
                 
     def get_file(self, file_):
         """ Get the info from a file and compair it with the previous info. """
