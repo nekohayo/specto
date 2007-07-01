@@ -6,6 +6,7 @@ Installing Specto is usually an easy process if you have a Ph.D in rocket scienc
 If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list.
   * [http://frugalware.org Frugalware Linux]
   * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
+  * [http://fedora.redhat.com Fedora]
 
 = Official packages and tarballs =
 These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
