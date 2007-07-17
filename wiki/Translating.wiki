@@ -1,6 +1,6 @@
 #summary helping Specto speak your language
 #labels Featured,Phase-Support
-You can use launchpad's Rosetta translation tool, but translating the .po files directly and sending them by email to nekohayo §at§ gmail.com is preferred.
+You can use launchpad's Rosetta translation tool, but translating the .po files directly and sending them by email to *nekohayo [a] gmail.com* is preferred.
 
 Here is a short guide to translating under Linux, it is here as a "quick reference" or reminder for people like Kiddo who always forget.
 
