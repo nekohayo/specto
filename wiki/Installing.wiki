@@ -5,6 +5,7 @@ Installing Specto is usually an easy process if you have a Ph.D in rocket scienc
 = Linux Distributions that currently provide Specto: =
 If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list.
   * [http://frugalware.org Frugalware Linux]
+  * [http://debian.org Debian GNU/Linux] (in testing and unstable)
   * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
   * [http://fedora.redhat.com Fedora]
 
