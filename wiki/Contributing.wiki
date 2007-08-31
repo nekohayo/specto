@@ -14,9 +14,18 @@ In addition to assigning the task to yourself, you should ask the other developp
   * Hacking code
   * Filing bug reports
   * Writing documentation and keeping this wiki up to date for developers
-  * Translating Specto into your language
+  * [Translating] Specto into your language
   * Suggesting brilliant cracktastic ideas
-  * Keeping the diagram of the modules up to date (requires DIA)
+
+== How to contribute code with a patch ==
+You modified your svn version of Specto and want to send us the changes? Great, here is how you can make a simple patch. In the root folder of your Specto trunk:
+`svn diff > my_changes.patch`
+You can then attach this patch to an [http://code.google.com/p/specto/issues/list issue] or email it, or print it out on paper and come running at our doorstep early in the morning!
+
+To merge a patch with your working copy of Specto, most of the time, a simple
+`patch -p0 < his_changes.patch`
+...will do. Note that p0 is an indicator of the _directory level_. For example, "_patch -p1 < foo.patch_": the number behind "p" might vary, depending on the patch, and the directory you are in when you are applying the patch. So, to figure out what the number must be, you must actually look at the patch. The "p" number strips X directories from the path listed in the patch.
+
 
 = Tools of the Trade =
 Of course, you are absolutely free to use whatever you want to help Specto, but here are just a few hints of software we recommend if you have no idea what you should use. 
