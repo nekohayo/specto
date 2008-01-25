@@ -631,7 +631,7 @@ class Specto:
             
             
             icon = gtk.Image()
-            icon.set_from_pixbuf(self.icon_theme.load_icon("dialog-warning", 64, 0))
+            icon.set_from_icon_name("dialog-warning", 64)
             dialog.label_hbox.pack_start(icon, True, True, 6)
             icon.show()
 
