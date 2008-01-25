@@ -385,7 +385,7 @@ class Notifier:
                 self.wTree.get_widget("lblLastUpdateText").set_label(selected.last_updated)
 
                 #show the image
-                self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("applications-internet", 64, 0))
+                self.wTree.get_widget("imgWatch").set_from_icon_name("applications-internet", 64)
 
             elif selected.type == 1:
                 #get the info
@@ -400,31 +400,33 @@ class Notifier:
                 self.wTree.get_widget("lblMailLastUpdateText").set_label(selected.last_updated)
 
                 #show the image
-                self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("emblem-mail", 64, 0))
+                self.wTree.get_widget("imgWatch").set_from_icon_name("emblem-mail", 64)
                 
             elif selected.type == 2:
                 self.wTree.get_widget("lblFileNameText").set_label(selected.name)
                 self.wTree.get_widget("lblFileName").set_label(selected.file)
                 self.wTree.get_widget("lblFileLastUpdateText").set_label(selected.last_updated)
-                self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("folder", 64, 0))
+                self.wTree.get_widget("imgWatch").set_from_icon_name("folder", 64)
                 
             elif selected.type == 3:
                 self.wTree.get_widget("lblProcessNameText").set_label(selected.name)
                 self.wTree.get_widget("lblProcessName").set_label(selected.process)
                 self.wTree.get_widget("lblProcessLastUpdateText").set_label(selected.last_updated)
-                self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("applications-system", 64, 0))
+                self.wTree.get_widget("imgWatch").set_from_icon_name("applications-system", 64)
 
             elif selected.type == 4:
                 self.wTree.get_widget("lblPortNameText").set_label(selected.name)
                 self.wTree.get_widget("lblPortName").set_label(selected.port)
                 self.wTree.get_widget("lblPortLastUpdateText").set_label(selected.last_updated)
-                self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("network-transmit-receive", 64, 0))
+                self.wTree.get_widget("imgWatch").set_from_icon_name("network-transmit-receive", 64)
                 
             elif selected.type == 5:
                 self.wTree.get_widget("lblReadNameText").set_label(selected.name)
                 self.wTree.get_widget("lblReadUpdateText").set_label(selected.last_updated)
-                try: self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("internet-news-reader", 64, 0))
-                except: self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("applications-internet", 64, 0))
+                if self.specto.icon_theme.has_icon("internet-news-reader") :
+                    self.wTree.get_widget("imgWatch").set_from_icon_name("internet-news-reader", 64)
+                else :
+                    self.wTree.get_widget("imgWatch").set_from_icon_name("applications-internet", 64)
             elif selected.type == 6:###this need to be updated!
                 pass
                 
@@ -681,7 +683,7 @@ class Notifier:
         self.lblTip.set_use_markup(True)
         self.lblTip.show()
         vbox_info.pack_start(self.lblTip, False, False, 0)
-        self.wTree.get_widget("imgWatch").set_from_pixbuf(self.specto.icon_theme.load_icon("dialog-information", 64, 0))
+        self.wTree.get_widget("imgWatch").set_from_icon_name("dialog-information", 64)
 
         #hide the buttons
         self.wTree.get_widget("vbox_panel_buttons").hide()
