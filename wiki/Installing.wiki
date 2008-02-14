@@ -19,9 +19,13 @@ If you want to try out some newer bazaar (bzr) branches from individual develope
   * [https://code.launchpad.net/~woutc/specto/specto-woutc Wout's branch] (fastest development branch)
   * [https://code.launchpad.net/~kiddo/specto/specto-jeff Jeff's branch] (roughly equal to Wout's branch, with some fixes and slower development)
 
-You may want to *keep your SVN version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto SVN trunk: 
+You may want to *keep your SVN/Bzr version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto SVN trunk or bazaar branch: 
 {{{
 svn up
+}}}
+or
+{{{
+bzr pull
 }}}
 
 = Running/installing a tarball or the SVN trunk =
