@@ -12,8 +12,12 @@ If you are a package maintainer and would like to package Specto, please edit th
 = Official packages and tarballs =
 These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
 
-= Getting Specto from SVN =
-Follow the instructions in our [http://code.google.com/p/specto/source source section] to get the files using "subversion" (svn).
+= Getting Specto from SVN or Bzr =
+If you want the official, somewhat stable development version, follow the instructions in our [http://code.google.com/p/specto/source source section] to get the files using "subversion" (svn).
+
+If you want to try out some newer bazaar (bzr) branches from individual developers, your could try:
+  * [https://code.launchpad.net/~woutc/specto/specto-woutc Wout's branch] (fastest development branch)
+  * [https://code.launchpad.net/~kiddo/specto/specto-jeff Jeff's branch] (roughly equal to Wout's branch, with some fixes and slower development)
 
 You may want to *keep your SVN version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto SVN trunk: 
 {{{
@@ -25,7 +29,7 @@ After extracting the contents of a tarball, you will notice Specto has a bunch o
 
 == Dependencies ==
 This is the approximative list of required software packages needed to compile Specto. The items in bold are the ones you are most likely to need to install, the rest is usually already present in most distributions.
-  * *subversion* (if you want specto from SVN)
+  * *subversion* or *bzr* (if you want specto from SVN or Bzr)
   * python
   * *python-dev*
   * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
