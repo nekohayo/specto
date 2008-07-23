@@ -26,10 +26,6 @@ You may want to *keep your bzr version of Specto updated* from time to time. Ass
 {{{
 bzr pull
 }}}
-or
-{{{
-bzr pull
-}}}
 
 = Running or installing from a tarball or a bzr branch =
 After extracting the contents of a tarball, you will notice Specto has a bunch of files and folders. Before doing anything remotely productive, you need to make sure you fill the dependencies to make Specto work.
