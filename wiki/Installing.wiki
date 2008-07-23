@@ -2,8 +2,8 @@
 #labels Documentation,Featured
 Installing Specto is usually an easy process if you have a Ph.D in rocket science, but this can vary wildly depending on a range of factors such as your Linux distribution, the availability of Specto for your distribution, and the number of cats in 4chan.
 
-= Linux Distributions that currently provide Specto: =
-If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list.
+= Linux Distributions that provide Specto =
+If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list. Please note that distribution packages might not always be up to date, and may contain bugs that are fixed in newer versions (or development versions).
   * [http://frugalware.org Frugalware Linux]
   * [http://debian.org Debian GNU/Linux] (in testing and unstable)
   * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
@@ -12,28 +12,31 @@ If you are a package maintainer and would like to package Specto, please edit th
 = Official packages and tarballs =
 These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
 
-= Getting Specto from SVN or Bzr =
-If you want the official, somewhat stable development version, follow the instructions in our [http://code.google.com/p/specto/source source section] to get the files using "subversion" (svn).
+= Getting Specto from Bazaar (bzr) =
+If you want to take a look at all the branches related to Specto (some of which could be made by third parties), visit our [https://code.launchpad.net/specto launchpad bazaar branches page].
 
-If you want to try out some newer bazaar (bzr) branches from individual developers, your could try:
-  * [https://code.launchpad.net/~woutc/specto/specto-woutc Wout's branch] (fastest development branch)
-  * [https://code.launchpad.net/~kiddo/specto/specto-jeff Jeff's branch] (roughly equal to Wout's branch, with some fixes and slower development)
-
-You may want to *keep your SVN/Bzr version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto SVN trunk or bazaar branch: 
+To get the official main development branch (named specto-main), grab it with this command:
 {{{
-svn up
+bzr branch lp:specto
+}}}
+
+Note that *the SVN version of Specto on google code hosting is deprecated* and should not be used.
+
+You may want to *keep your bzr version of Specto updated* from time to time. Assuming you are in the directory where you keep the Specto bzr trunk (specto-main): 
+{{{
+bzr pull
 }}}
 or
 {{{
 bzr pull
 }}}
 
-= Running/installing a tarball or the SVN trunk =
+= Running or installing from a tarball or a bzr branch =
 After extracting the contents of a tarball, you will notice Specto has a bunch of files and folders. Before doing anything remotely productive, you need to make sure you fill the dependencies to make Specto work.
 
 == Dependencies ==
-This is the approximative list of required software packages needed to compile Specto. The items in bold are the ones you are most likely to need to install, the rest is usually already present in most distributions.
-  * *subversion* or *bzr* (if you want specto from SVN or Bzr)
+This is the most current list of required software packages needed to compile Specto. The items in bold are the ones you are most likely to need to install, the rest is usually already present in most distributions.
+  * *bzr* (if you want specto from a bazaar branch)
   * python
   * *python-dev*
   * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
