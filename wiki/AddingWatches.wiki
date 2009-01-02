@@ -7,17 +7,17 @@ Once this window is open, you can click the "add" button in the toolbar, or in t
 
   * Email: checks for unread mail
   * System
-  ** Folder: notifies when the folder has new/modified/deleted contents
-  ** File: notifies when the file is modified
-  ** Port: notifies when an application starts/stop using a socket
-  ** Process: notifies when the process with a matching name starts or stop
+    * Folder: notifies when the folder has new/modified/deleted contents
+    * File: notifies when the file is modified
+    * Port: notifies when an application starts/stop using a socket
+    * Process: notifies when the process with a matching name starts or stop
   * Version control
-  ** Bazaar: checks a Bazaar-controlled folder on your system and compares it to itself and to its parent (remote) branch. This is useful if you want to know when your local copy of a branch is outdated, or when you have a local repository into which others "push". This watch's behavior is roughly equal to the command "bzr missing".
+    * Bazaar: checks a Bazaar-controlled folder on your system and compares it to itself and to its parent (remote) branch. This is useful if you want to know when your local copy of a branch is outdated, or when you have a local repository into which others "push". This watch's behavior is roughly equal to the command "bzr missing".
   * Social networks
-  ** Facebook: notifies you of private messages, wall posts, notifications and requests in your Facebook account
+    * Facebook: notifies you of private messages, wall posts, notifications and requests in your Facebook account
   * Internet
-  ** Google Reader: checks for unread items in your Google Reader account
-  ** Website or RSS feed: Specto will watch a web page or web feed, and notify you when it has been updated
+    * Google Reader: checks for unread items in your Google Reader account
+    * Website or RSS feed: Specto will watch a web page or web feed, and notify you when it has been updated
 
 When you select the desired watch type, a new dialog will appear, allowing you to configure the watch you want to create.
 
