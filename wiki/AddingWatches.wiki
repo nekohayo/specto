@@ -3,16 +3,26 @@
 
 In order to add a watch, you need to start Specto and open the notifier window. If there is no window called "notifications" open already, you can open it by clicking the Specto tray icon.
 
-Once this window is open, you can click the "add" button in the toolbar, or in the "Edit" menu. A new dialog will appear, allowing you to configure the watch you want to create.
+Once this window is open, you can click the "add" button in the toolbar, or in the "Edit" menu. A submenu will appear, allowing you to choose what type of watch you want to add:
+
+  * Email: checks for unread mail
+  * System
+  ** Folder: notifies when the folder has new/modified/deleted contents
+  ** File: notifies when the file is modified
+  ** Port: notifies when an application starts/stop using a socket
+  ** Process: notifies when the process with a matching name starts or stop
+  * Version control
+  ** Bazaar: checks a Bazaar-controlled folder on your system and compares it to itself and to its parent (remote) branch. This is useful if you want to know when your local copy of a branch is outdated, or when you have a local repository into which others "push". This watch's behavior is roughly equal to the command "bzr missing".
+  * Social networks
+  ** Facebook: notifies you of private messages, wall posts, notifications and requests in your Facebook account
+  * Internet
+  ** Google Reader: checks for unread items in your Google Reader account
+  ** Website or RSS feed: Specto will watch a web page or web feed, and notify you when it has been updated
+
+When you select the desired watch type, a new dialog will appear, allowing you to configure the watch you want to create.
 
 = Name =
 This is only a unique name that you must give to your "watch", in order to identify it easily. Specto will often refer to this watch with that name. Try to keep it short.
-
-= Type =
-You must select a watch type. Depending on the type, the other parameters will vary, and so will the watch's behavior. Watch types include:
-  * Website: Specto will watch a web page or web feed, and notify you when it has been updated
-  * Email: you will be notified each time you receive new email.
-  * Files or folders: you are notified when the file modified, or when the folder has new contents, modified contents or deleted contents
 
 = Refresh Interval =
 The amount of time Specto must wait before checking for updates on the watch. In addition to the refresh "number", you must specify which time unit the watch must use (seconds, minutes, hours, days).
@@ -30,3 +40,15 @@ When you click the "add" button, the watch will be added to Specto's watch list,
 
 == How do I know it works? ==
 If you want to make sure that Specto works for watching websites, you can use this test page that changes randomly: randize.com
+
+= Hidden watch settings =
+Some watches have special settings that can only be set by editing the ~/.config/specto/watches.list file manually. These are settings that most users would not need or that are not practical to implement in the user interface.
+  * Setting a port for mail watches (issue #128): add 'port = 323' to your watch config
+  * Allow checking a specific IMAP folder (issue #136): add 'folder = something' to your watch config
+  * To (dis)allow URL redirects on a per-watch basis (issue #146): add "redirect = True". This overrides the gconf key "follow_website_redirects".
+
+= Hidden global settings =
+You can use gconf-editor and navigate to /apps/specto to reveal some more settings, such as the hidden gconf key, "follow_website_redirects" (Issue #58).
+
+= Does Specto support proxies? =
+Yes. Watches that use the network will (normally) use your GNOME proxy settings automatically.

@@ -2,15 +2,16 @@
 #labels Documentation,Featured
 Installing Specto is usually an easy process if you have a Ph.D in rocket science, but this can vary wildly depending on a range of factors such as your Linux distribution, the availability of Specto for your distribution, and the number of cats in 4chan.
 
+= Official packages and tarballs =
+These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
+
 = Linux Distributions that provide Specto =
-If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list. Please note that distribution packages might not always be up to date, and may contain bugs that are fixed in newer versions (or development versions).
+Take note that distribution packages might not always be up to date, and may contain bugs that are fixed in newer versions (or development versions).
+If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list. 
   * [http://frugalware.org Frugalware Linux]
   * [http://debian.org Debian GNU/Linux] (in testing and unstable)
   * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
   * [http://fedora.redhat.com Fedora]
-
-= Official packages and tarballs =
-These are the "release" packages. You can find them in our [http://code.google.com/p/specto/downloads/list download section]. Useful if your distribution provides no packages for Specto, or if their packages are too old for your taste.
 
 = Getting Specto from Bazaar (bzr) =
 If you want to take a look at all the branches related to Specto (some of which could be made by third parties), visit our [https://code.launchpad.net/specto launchpad bazaar branches page].
@@ -32,18 +33,20 @@ After extracting the contents of a tarball, you will notice Specto has a bunch o
 
 == Dependencies ==
 This is the most current list of required software packages needed to compile Specto. The items in bold are the ones you are most likely to need to install, the rest is usually already present in most distributions.
-  * *bzr* (if you want specto from a bazaar branch)
+  * bzr (for the bazaar watch plugin, or if you want to grab Specto from a bazaar branch)
+  * gnome-icon-theme?
+  * libgnome-keyring0
+  * librsvg2-common
   * python
-  * *python-dev*
-  * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
+  * python-central
+  * python-dev (if you run the development version with setup.py)
+  * python-gconf
   * python-glade2
   * python-gnome2
   * python-gnome2-extras
-  * python-central
-  * *python-notify* and python-dbus (to allow libnotify "balloons")
-  * python-gconf
-  * librsvg2-common
-  * gnome-icon-theme?
+  * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
+  * python-libxml2
+  * python-notify and python-dbus (to allow libnotify "balloons")
 ----
 
 What to do now that you took care of those dependencies? Don't panic. There are two options: running specto locally or installing it system-wide.

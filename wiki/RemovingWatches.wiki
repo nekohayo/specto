@@ -1,7 +1,7 @@
 #summary Use this function only if you want to remove permanently a watch from Specto's watch list.
 #labels Documentation
 
-*This cannot be undone*. We can not be held responsible if a herd of flying mammoths come and trash your house.
+As the confirmation dialog will tell you, *this cannot be undone*. We can not be held responsible if a herd of flying mammoths come and trash your house.
 
 If you are looking to stop a watch from being updated, but not remove it from the watch list, see ActivatingAndDeactivatingWatches instead.
 
