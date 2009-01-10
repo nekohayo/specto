@@ -27,3 +27,7 @@ The default encoding for all documents is UTF-8. In a Python file, this is done 
 {{{
 # -*- coding: UTF8 -*-
 }}}
+
+= Do not break Main =
+The specto-main development branch is intended as a "stable" development branch. Only small and carefully tested bug fixes should be committed directly to it. Long-duration development is to be done in individual branches, which will be merged periodically or on request when they have been heavily tested and found to cause no regressions compared to Main. Thus, one can work on refactoring, or a new incomplete feature, in a separate bazaar branch, without breaking the stability of Specto's main development branch for the users who depend on it.
+Also, in normal circumstances, you should start your individual branch by "branching" off from specto-main, and merge only from main instead of other individual branches.
