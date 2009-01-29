@@ -9,7 +9,7 @@ You will need:
   * a good efficiency in your language - it is not encouraged to translate if it is not in your mother tongue
   * a .po file editor. We recommend [http://www.poedit.org poedit], but you are free to use whatever suits you. poedit will most likely be available from your distribution packages. For example, ubuntu users can easily install "poedit" with synaptic.
 
-This guide will assume you are using the SVN version of Specto.
+This guide will assume you are using the development (Bazaar) version of Specto.
 
   # recreate the template file by executing the script called *generate_template.py* in the *po* folder
   # if your language does not exist yet, create a subfolder in po/ (such as po/fr for French)
