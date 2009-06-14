@@ -45,8 +45,10 @@ This is the most current list of required software packages needed to compile Sp
   * python-gnome2
   * python-gnome2-extras
   * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
+  * python-numpy (recent versions of pygtk packages don't include it by default)
   * python-libxml2
   * python-notify and python-dbus (to allow libnotify "balloons")
+  * xdg-utils
 ----
 
 What to do now that you took care of those dependencies? Don't panic. There are two options: running specto locally or installing it system-wide.
