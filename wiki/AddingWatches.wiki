@@ -47,6 +47,14 @@ Some watches have special settings that can only be set by editing the ~/.config
   * Allow checking a specific IMAP folder (issue #136): add 'folder = something' to your watch config
   * To (dis)allow URL redirects on a per-watch basis (issue #146): add "redirect = True". This overrides the gconf key "follow_website_redirects".
 
+It is possible to reuse some of Specto's variables inside your custom commands. If you add the following variables in the "custom open command" or "custom changed command" fields in a watch's settings, they will be replaced by the value in Specto:
+  * %information = the information that is displayed in the balloon message
+  * %extra_information = the information displayed in the "extra information" tab
+  * %name = the name from the watch
+  * %last_changed = the date and time the watch was last changed
+
+An example would be: "/usr/bin/mycommand %name %last_changed"
+
 = Hidden global settings =
 You can use gconf-editor and navigate to /apps/specto to reveal some more settings, such as the hidden gconf key, "follow_website_redirects" (Issue #58).
 
