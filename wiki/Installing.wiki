@@ -39,10 +39,11 @@ This is the most current list of required software packages needed to compile Sp
   * librsvg2-common
   * python
   * python-central
+  * python-dbus (optional, for DBUS-dependent watches)
   * python-dev (if you run the development version with setup.py)
   * python-gconf
   * python-glade2
-  * python-gst0.10
+  * python-gst0.10 (optional, for sounds)
   * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
   * python-indicate (optional, for integration with Ubuntu's "indicator applet")
   * python-numpy (recent versions of pygtk packages don't include it by default)
