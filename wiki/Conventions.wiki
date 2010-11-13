@@ -25,7 +25,7 @@ In specto, everything is managed by main.py. As it is the central module, you mu
 = Encoding =
 The default encoding for all documents is UTF-8. In a Python file, this is done with a line like this at the top:
 {{{
-# -*- coding: UTF8 -*-
+# -*- coding: utf-8 -*-
 }}}
 
 = Do not break Main =
