@@ -49,6 +49,7 @@ This is the most current list of required software packages needed to compile Sp
   * python-numpy (recent versions of pygtk packages don't include it by default)
   * python-libxml2
   * python-notify and python-dbus (to allow libnotify "balloons")
+  * python-svn (optional, for the Subversion watch)
   * xdg-utils
 ----
 
