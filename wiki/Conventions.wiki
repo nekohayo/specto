@@ -6,7 +6,12 @@ You must use *four (4) spaces instead of tabs* to indent the code. Proper and co
 = PEP-8 style compliance =
 All your patches and commits should be conforming to the Python PEP-8 style guide: http://www.python.org/dev/peps/pep-0008/
 The exception is for line lengths. We don't require lines to be wrapped at 79 columns. They are smoking crack.
-To check the code for compliance, you can download http://svn.browsershots.org/trunk/devtools/pep8/pep8.py and run it with the "--ignore=E501" parameter.
+To check the code for compliance, install python-pep8 and run it with the "--ignore=E501" parameter, like so:
+{{{
+pep8 "spectlib/" --repeat --ignore=E501
+pep8 "spectlib/tools" --repeat --ignore=E501
+pep8 "spectlib/plugins" --repeat --ignore=E501
+}}}
 
 = Comments and documentation =
 Try to comment as much as possible, meaning that you should add comments for anything that you feel might be confusing for others, to document special workarounds, etc. Normal comments use the # symbol before the comment (see also the PEP-8 guidelines on how to do spacing around it). When you feel some feature needs to be added, add #TODO: before the comment. When you see or predict a bug in a certain area, use the #FIXME: comment style instead. Do not forget to actually file an [http://code.google.com/p/specto/issues/list issue] about it.

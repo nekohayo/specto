@@ -7,11 +7,12 @@ These are the "release" packages. You can find them in our [http://code.google.c
 
 = Linux Distributions that provide Specto =
 Take note that distribution packages might not always be up to date, and may contain bugs that are fixed in newer versions (or development versions).
-If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list. 
+If you are a package maintainer and would like to package Specto, please edit this page (if you are a project member) or send an email to the Group to add your distribution to this list.
+  * [http://fedora.redhat.com Fedora] 
   * [http://frugalware.org Frugalware Linux]
   * [http://debian.org Debian GNU/Linux] (in testing and unstable)
   * [http://www.ubuntu.com Ubuntu Linux] (in universe since 7.04)
-  * [http://fedora.redhat.com Fedora]
+  * [http://opensuse.org OpenSuse]
 
 = Getting Specto from Bazaar (bzr) =
 If you want to take a look at all the branches related to Specto (some of which could be made by third parties), visit our [https://code.launchpad.net/specto launchpad bazaar branches page].
@@ -42,7 +43,6 @@ This is the most current list of required software packages needed to compile Sp
   * python-dbus (optional, for DBUS-dependent watches)
   * python-dev (if you run the development version with setup.py)
   * python-gconf
-  * python-glade2
   * python-gst0.10 (optional, for sounds)
   * python-gtk2 (_version 2.10 or higher;_ this also means you need GTK+2.10 or newer)
   * python-indicate (optional, for integration with Ubuntu's "indicator applet")
