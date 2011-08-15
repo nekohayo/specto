@@ -62,8 +62,10 @@ launch.sh
 
 To install specto system-wide (do this if you have multiple users doing it, if you are a package maintainer or if you want the translations to work). You need to run the setup script as a super-user. Do this in the folder where you extracted Specto: 
 {{{
+python setup.py build
 sudo python setup.py install
-sudo gtk-update-icon-cache -f /usr/share/icons/hicolor
 }}}
 
 You can then run specto by typing "specto" and pressing enter in a terminal, or look in your GNOME applications menu, there should be an entry for Specto in the "accessories" submenu.
+
+If you need to uninstall the version you installed with setup.py, simply run {{{sudo python setup.py uninstall}}}.
